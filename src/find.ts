@@ -1,3 +1,7 @@
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
+
 const main = async () => {
   //   Data Insert into prisma **
   // const result = await prisma.post.create({
@@ -58,7 +62,7 @@ const main = async () => {
 
   const findUnique = await prisma.post.findUnique({
     where: {
-      id: 2,
+      id: 45,
     },
   });
 
@@ -69,7 +73,7 @@ const main = async () => {
   //!  Find unique Or Throw Error : If data not exits with provided query, it's will throw an error **
   const findUniqueOrThrow = await prisma.post.findUniqueOrThrow({
     where: {
-      id: 10,
+      id: 45,
     },
   });
 
@@ -78,4 +82,16 @@ const main = async () => {
   });
 };
 
-main();
+// main();
+
+const findAll = async () => {
+  const all = await prisma.post.findMany({
+    select: {
+      title: true
+    },
+  });
+
+  console.log({ all });
+};
+
+findAll();
