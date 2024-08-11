@@ -13,6 +13,7 @@ const main = async () => {
     create: {
       title: "Upserted title",
       content: "Upserted Content",
+      authorId: 5,
     },
   });
 
