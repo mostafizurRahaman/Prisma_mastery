@@ -101,9 +101,35 @@ const relationalQueries = async () => {
     },
   });
 
-  console.dir(userPosts);
+  // const createUsers = await prisma.user.createMany({
+  //   data: [
+  //     {
+  //       username: "smriti",
+  //       email: "smriti@gamil.com",
+  //       role: "user",
+  //     },
+  //     {
+  //       username: "ratul",
+  //       email: "ratul@gmail.com",
+  //       role: "user",
+  //     },
+  //     {
+  //       username: "roman",
+  //       email: "roman@gmail.com",
+  //       role: "user",
+  //     },
+  //   ],
+  // });
 
-  console.dir(InOperator, { depth: Infinity });
+  const NotInOperatorExp = await prisma.user.findMany({
+    where: {
+      username: {
+        notIn: ["priti", "smriti"],
+      },
+    },
+  });
+
+  console.dir(NotInOperatorExp, { depth: Infinity });
 };
 
 relationalQueries();
