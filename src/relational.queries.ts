@@ -129,7 +129,25 @@ const relationalQueries = async () => {
     },
   });
 
-  console.dir(NotInOperatorExp, { depth: Infinity });
+  //  Try Explore All Data by using nested references **
+  const nestedReferencesData = await prisma.user.findMany({
+    where: {
+      id: 1,
+    },
+    include: {
+      post: {
+        include: {
+          postCategory: {
+            include: {
+              category: true,
+              post: true,
+            },
+          },
+        },
+      },
+    },
+  });
+  console.dir(nestedReferencesData, { depth: Infinity });
 };
 
 relationalQueries();

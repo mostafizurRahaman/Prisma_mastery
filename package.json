@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "tsnd --respawn ./src/relational.queries.ts",
+    "start:dev": "tsnd --respawn ./src/prisma.logging.ts",
     "prisma:migrate": "npx prisma migrate dev --name init",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
