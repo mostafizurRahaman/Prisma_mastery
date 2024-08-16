@@ -34,6 +34,7 @@ model Post {
   username String @db.VarChar(50) @unique
   email String @db.VarChar(100) @unique
   role userRole 
+  age Int @default(0)
   profile Profile?
   post Post[]
   @@map("users")
@@ -73,4 +74,11 @@ model  Category {
   name String @db.VarChar(50) 
   postCategory PostCategory[]
   @@map("categories")
+}
+
+
+model Person {
+   id Int @id @default(autoincrement())
+   name String @db.VarChar(100) @unique
+   amount Int   
 }
